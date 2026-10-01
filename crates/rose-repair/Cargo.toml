@@ -1,0 +1,11 @@
+[package]
+name = "rose-repair"
+version = "0.1.0"
+description = "Headless LTK Manager repair for Rose's Marketplace downloads"
+edition = "2024"
+license = "GPL-3.0-or-later"
+publish = false
+
+[dependencies]
+ltk-manager-core = { path = "../ltk-manager-core" }
+serde_json = { workspace = true }

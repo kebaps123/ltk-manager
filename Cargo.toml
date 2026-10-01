@@ -9,6 +9,7 @@ members = [
     "crates/ltk-manager-base",
     "crates/ltk-manager-bin",
     "crates/ltk-manager-core",
+    "crates/rose-repair",
     "crates/ltk-manager-game",
     "crates/ltk-manager-library",
     "crates/ltk-manager-problems",
