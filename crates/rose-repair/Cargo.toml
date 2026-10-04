@@ -7,5 +7,7 @@ license = "GPL-3.0-or-later"
 publish = false
 
 [dependencies]
-ltk-manager-core = { path = "../ltk-manager-core" }
+ltk-manager-base = { path = "../ltk-manager-base" }
+ltk-manager-assets = { path = "../ltk-manager-assets" }
+ltk-manager-library = { path = "../ltk-manager-library" }
 serde_json = { workspace = true }

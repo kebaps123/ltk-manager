@@ -3,13 +3,13 @@
 //! usage: rose-repair <mod> <out> --league <League of Legends dir>
 //!
 //! The mod is installed into a throwaway library, repaired there with
-//! ltk-manager-core, and exported to <out>. The last stdout line is JSON:
+//! LTK Manager's library crates, and exported to <out>. The last stdout line is JSON:
 //! {"status": "repaired"|"unchanged"|"failed", "applied": n, "extension": "...", "error": "..."}
 
-use ltk_manager_core::config::Config;
-use ltk_manager_core::events::NullEventSink;
-use ltk_manager_core::hashtables::{HashtableCache, WadPathResolverState};
-use ltk_manager_core::mods::{
+use ltk_manager_assets::hashtables::{HashtableCache, WadPathResolverState};
+use ltk_manager_base::config::Config;
+use ltk_manager_base::events::NullEventSink;
+use ltk_manager_library::mods::{
     ChecksumMismatchState, ExportScope, ExportShape, LinkedBinState, ModLibrary, WadReportState,
 };
 use serde_json::json;
@@ -77,7 +77,8 @@ fn repair(
 
     let installed = library
         .install_mod_from_package(&config, &input.to_string_lossy())
-        .map_err(|e| e.to_string())?;
+        .map_err(|e| e.to_string())?
+        .into_mod();
     let fixes = library
         .repair_mod(&config, &installed.id)
         .map_err(|e| e.to_string())?;
