@@ -67,11 +67,11 @@ fn repair(
     };
     let library = ModLibrary::new(
         Arc::new(NullEventSink),
-        Some(storage),
+        Some(storage.clone()),
         env!("CARGO_PKG_VERSION"),
         Arc::new(LinkedBinState::default()),
         Arc::new(ChecksumMismatchState::default()),
-        Arc::new(WadReportState::default()),
+        Arc::new(WadReportState::new(Some(&storage))),
         Arc::new(WadPathResolverState::default()),
     );
 
